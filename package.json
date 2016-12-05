@@ -1,0 +1,74 @@
+{
+  "name": "PWA",
+  "version": "1.0.0",
+  "main": "./www/server/index.js",
+  "scripts": {
+    "start": "pm2 start ./www/server/index.js --watch",
+    "build": "gulp",
+    "test": "gulp test-server"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ],
+    "plugins": [
+      [
+        "transform-runtime",
+        {
+          "polyfill": false,
+          "regenerator": true
+        }
+      ]
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/JuanLuisClaure/PWA-framework.git",
+    "type": "git"
+  },
+  "author": "JuanLuisClaure <juanluisclaure24@live.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "4.0.0-canary.1",
+    "del": "^2.2.2",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "gulp": "^3.9.1",
+    "gulp-babel": "latest",
+    "gulp-eslint": "latest",
+    "gulp-flowtype": "1.0.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-mocha": "3.0.1",
+    "gulp-stylelint": "3.4.0",
+    "http2": "latest",
+    "mocha": "3.1.2",
+    "webpack": "2.1.0-beta.26",
+    "webpack-stats-plugin": "^0.1.4",
+    "webpack-stream": "latest"
+  },
+  "devDependencies": {
+    "babel-core": "6.18.2",
+    "babel-eslint": "latest",
+    "babel-loader": "6.2.7",
+    "babel-plugin-transform-runtime": "latest",
+    "babel-preset-flow": "^1.0.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-runtime": "latest",
+    "browser-sync": "latest",
+    "css-loader": "^0.25.0",
+    "eslint": "3.10.2",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-plugin-flowtype": "2.25.0",
+    "eslint-plugin-import": "2.2.0",
+    "express": "5.0.0-alpha.2",
+    "express-http2-workaround": "^1.1.0",
+    "gulp-connect-pm2": "^0.0.2",
+    "gulp-livereload": "3.8.0",
+    "gulp-notify": "2.2.0",
+    "minimatch": "3.0.2",
+    "node-sass": "^3.13.0",
+    "postcss-loader": "latest",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "stylelint": "7.5.0",
+    "stylelint-rscss": "latest"
+  }
+}
