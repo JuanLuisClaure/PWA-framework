@@ -1,0 +1,18 @@
+{
+  "name": "pwa-frmwrk",
+  "short_name": "pwa-frmwrk",
+  "description": "It is a boilerplate with super power for build next generation websites",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#ff7157;",
+  "icons": [
+    {
+      "src": "./homescreen.png",
+      "sizes": "192x192",
+      "type": ".png"
+    }
+  ],
+  "background_color": "#fff"
+}

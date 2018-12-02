@@ -3,33 +3,29 @@ const webpack = require('webpack')
 const path = require('path')
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin
 
-export default {
 
+export default {
   resolve: {
     modules: [
       'node_modules',
-      path.resolve(__dirname, 'serverside/'),
     ],
-    extensions: ['.js', '.scss'],
+    extensions: ['.js', '.css'],
 
   },
 
   entry: {
     app: './src/client/app/app',
-    www: './src/client/app/vndr',
-    // rtr: './src/client/app/router'
-
+    www: './src/client/app/vndr'
   },
   output: {
-
     publicPath: '/client/',
     filename: '[name].js',
     chunkFilename: '[id].js',
-    // sourceMapFilename: '[name].map',
+    sourceMapFilename: '[name].map',
   },
 
-  // devtool: 'cheap-module-source-map',
-  watch: false,
+  devtool: 'source-map',
+  watch: true,
 
   module: {
     rules: [
@@ -42,22 +38,39 @@ export default {
         }],
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         exclude: /node_modules/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: [
+          fallback: 'style-loader',
+          use: [
                    { loader: 'css-loader', query: { modules: false } },
-                   { loader: 'postcss-loader' },
-                   { loader: 'sass-loader' },
-
-
           ],
         }),
       },
+      {
+          test: /\.woff$|\.woff2$|\.ttf$|.eot$|.svg$/,
+          exclude: /node_modules/,
+          loader:[{
+            loader: 'file-loader',
+            query:{
+              name:'assets/fonts/[name].[ext]'
+            }
+          }]
 
+      },
+      {
+          test: /\.jpe?g$|\.gif$|\.png$|\.ico$/,
+          exclude: /node_modules/,
+          loader:[{
+            loader: 'file-loader',
+            query:{
+              name:'assets/img/[name].[ext]'
+            }
+          }]
 
-    ],
+      },
+
+],
   },
 
   plugins: [
@@ -82,7 +95,7 @@ export default {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['app'],
       minChunks: Infinity,
-      // children: true,
+      //children: true,
       async: true,
 
     }),

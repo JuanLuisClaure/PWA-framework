@@ -1,7 +1,0 @@
-{
-  "extends": ["stylelint-rscss/config"],
-  "rules": {
-    "indentation": "tab",
-    "number-leading-zero": null
-  }
-}

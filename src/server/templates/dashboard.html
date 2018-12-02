@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="PWA-framework for pwa doers" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <title>PWA-Dashboard</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="/client/www.css" type="text/css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
+  <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.12.0/riot.min.js" charset="utf-8"></script>
+  <script src="/server/components/bloqueo.js" charset="utf-8"></script>
+  <script src="/server/components/panel-perfil.js" charset="utf-8"></script>
+  <script src="/server/components/panel-buzon.js" charset="utf-8"></script>
+  <script src="/server/components/panel-coleccion.js" charset="utf-8"></script>
+  <script src="/server/components/panel-contenido.js" charset="utf-8"></script>
+  <script src="/server/components/panel-estadisticas.js" charset="utf-8"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    console.log('pintando cliente');
+
+
+  </script>
+</head>
+
+
+
+
+    <body style="min-height=100vh!important;position:relative;margin:0;">
+
+                    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+                    <div id="drawerconteiner" class="mdl-layout__drawer">
+                      <span class="mdl-layout-title">Title</span>
+                      <nav class="mdl-navigation">
+                        <a class="mdl-navigation__link" href="/dashboard/perfil">perfil</a>
+                        <a class="mdl-navigation__link" href="/dashboard/mensaje">mensajes</a>
+                        <a class="mdl-navigation__link" href="/dashboard/dinamico">dinamico</a>
+                        <a class="mdl-navigation__link" href="/dashboard/contenido">contenido</a>
+                        <a class="mdl-navigation__link" href="/dashboard/estadisticas">stadisticas</a>
+                        <button type="button" name="button" onclick="soyelownerrecuedame()">recordar</button>
+                        <button type="button" name="button" onclick="borrarcookie()">no recordar</button>
+
+                      </nav>
+                    </div>
+                    <main id="mainconteiner" class="mdl-layout__content" style="background-color: #eee!important;" >
+
+                          {{ renderHere | safe }}
+
+                    </main>
+                    </div>
+
+        </body>
+
+
+                <script type="text/javascript">
+
+                const askri = '{{ componente }}'
+                const datoserver = '{{ data | json }}'
+                const sertr = datoserver.replace(/&quot;/g,'"')
+                const par = sertr.replace(/&#39;/g,"'")
+                const jsondata = JSON.parse(par)
+
+
+                if (askri==='panel-buzon') {
+                  window.sockete = io('/usuarioSinRestrincciones')
+                  window.sockete.on('cliente:message',(as)=>{
+
+                    if (riot.update()[1]!==undefined) {
+                      riot.update()[1].opts.info = as.data
+                      riot.update()
+                    }else{
+                      let storekey = jsondata[as.data.info.cookie]
+                      storekey[1] = as.data
+                      storekey[0] = as.key
+                      riot.update()
+                    }
+
+
+
+
+                   })
+
+
+                }
+
+                    //
+                    // console.log(document.getElementById('mainconteiner').children[0]);
+                    // const verquepasa = riot.tag('panel-buzon', false, function(opts){
+                    //   console.log(this, 'asegurando datos');
+                    // })
+                    // console.log(verquepasa);
+                    document.addEventListener('DOMContentLoaded', ()=>{
+                      // riot.tag('panel-buzon', false, function(opts){
+                      //   console.log(opts);
+                      // })
+
+                      // riot.mount(askri)
+                      riot.mount(askri,function() {
+
+                                         return { data: jsondata }
+                                      })
+
+
+                     })
+
+                </script>
+
+
+</html>
