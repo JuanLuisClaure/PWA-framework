@@ -1,6 +1,8 @@
 ![](http://placehold.jp/550x550.png) 
 ![](http://placehold.jp/550x550.png) 
-
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
 ---
 
 >PWA-FRMWRK es un boilerplate para crear aplicaciones web progressivas.Cuenta con herramientas orientadas a mejorar el tiempo de carga y garantizar una experincia de usuario a pesar del dispositivo o velocidad de internet.Te ahorra tiempo en tu proceso de creacion permitiendote mantenerte enfocado en lo importante de tu proyecto. Es una solida opcion tanto para profesinales y novatos de la industria web
