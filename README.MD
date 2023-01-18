@@ -1,13 +1,12 @@
-![](http://placehold.jp/550x550.png) 
-![](http://placehold.jp/550x550.png) 
+![este es como el titulo digamos](./assets/psyframe.gif)
 - [x] Finish my changes
 - [ ] Push my commits to GitHub
-- [ ] Open a pull request
+
 ---
 
 >PWA-FRMWRK es un boilerplate para crear aplicaciones web progressivas.Cuenta con herramientas orientadas a mejorar el tiempo de carga y garantizar una experincia de usuario a pesar del dispositivo o velocidad de internet.Te ahorra tiempo en tu proceso de creacion permitiendote mantenerte enfocado en lo importante de tu proyecto. Es una solida opcion tanto para profesinales y novatos de la industria web
 
-## **Vision** 
+**Vision** 
 Empoderar con una herramienta multi uso a personas que quieran aprender a crear websites, Crear websites se ha vuelto una necesidad y este proyecto tiene la vision que un dia no muy lejano todos tendremos una website personal asi como tenemos una cuenta en las redes sociales. El primer paso es acortar la curva de aprendizaje y enseñar las mejores practicas desde el principio. Si funciona el siguiente paso es crear una comunidad donde puedas seguir aprendiendo sobre desarrollo y diseño, con habilidades asi aumentar tu precio en el mercado laboral o si tienes una idea realizar el prototipo sin pagar a un desarrollador. Entonces apostamos a encontrar al siguiente genio que solucionen problemas de las sociedades actuales con tecnologia y creatividad.
 
 
@@ -47,3 +46,4 @@ Empoderar con una herramienta multi uso a personas que quieran aprender a crear 
 
 
 # Quickstart
+
